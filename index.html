@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style id="STYLE">
-      body {
-        padding: 0;
-        margin: 0;
-        font-size: 100000
-        }
-        {box-sizing: border-box;}
+<html>
+<head>
+<style>
+body {
+  background-image: url('goi.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 
-/* Button used to open the contact form - fixed at the bottom of the page */
+}
+
+
 .open-button {
   background-color: #555;
   color: white;
@@ -22,6 +20,19 @@
   opacity: 0.8;
   position: fixed;
   bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.open-button2 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 100px;
   right: 28px;
   width: 280px;
 }
@@ -79,230 +90,246 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-    </style>
-    
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+</style>
+</head>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
 
-    <script src=main.js></script>
-
-
-    <h1>Getting Over It Custom Maps</h1>
-    <p>A place where you can find and play custom maps for getting over it!</p>
-    <h3>Useful Links</h3>
-    <p>
-    Modpack <a href="https://discord.gg/NGJyJJw" target="_blank">Download</a></p>
-    <p>Mapping Server <a href="https://discord.gg/prMdkvvSKV" target="_blank">Invite</a></p>
-    <p>How to Make Custom Maps <a href="https://www.youtube.com/watch?v=sgIxhBlbhAQ&t" target="_blank">Video</a></p>
-    <!-- This is a comment
-    <h1>Custom Maps<h1>
-    <h2><a href="https://drive.google.com/drive/folders/1s9lZfmoqCfwJeg1BOiTXx6U4LgaTs7Py" target="_blank">CliffHanger</a></h2>
-    <h4>Creator: Codyumm
-    <br><a href="https://www.youtube.com/watch?v=nxN7jMGzMn8&t" target="_blank">Video Showcase</a><br>Length:Medium</h4>
-    <h2><a href="https://drive.google.com/drive/folders/1guizRc45qswNcb_nEPUZdUzIRLYCw0fs?usp=sharing" target="_blank">CliffJumper</a></h2>
-    <h4>Creator: Bobingstern
-    <br><a href="https://www.youtube.com/watch?v=08mkbt3zKOA&t" target="_blank">Video Showcase</a><br>Length:Long</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1z8G3--LJOMxjlvIj34KIimEVvLymzi24?usp=sharing" target="_blank">Slippery Slopes</a></h2>
-    <h4>Creator: Bobingstern
-    <br><a href="https://www.youtube.com/watch?v=9HDZ_k680Bk" target="_blank">Video Showcase</a><br>Length:Short/Medium</h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1fwGnZx7yjGaBH91WQpX_tdX0471r6CFK/view?usp=sharing" target="_blank">Jump King</a></h2>
-    <h4>Creator: Quivers
-    <br>No Video Showcase
-    <br>Length:XL<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/16K5PCBBS7az2LrQ8ybyzmoYaJxtn0VRb" target="_blank">Getting Over Golfing Over It</a></h2>
-    <h4>Creator: Codyumm
-    <br><a href="https://www.youtube.com/watch?v=Uxq7bkJ6JGY&t" target="_blank">Video Showcase</a>
-    <br>Length:Medium/Long</h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1lT-6d1aQU3zZsjqbStDiud-Vhvz8X8Qa/view?usp=drivesdk" target="_blank">Yummz Demo</a></h2>
-    <h4>Creator: Permutative
-    <br>No Video Showcase
-    <br>Length:XL</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/12J5Y3oJSKp1_2NPYXDjIDJAoGGgWYeiR" target="_blank">Mario</a></h2>
-    <h4>Creator: HighChair
-    <br><a href="https://youtu.be/BV2dpPJqXjQ" target="_blank">Video Showcase</a>
-    <br>Length:Short-Medium</h4></h4></h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/15d2psipS8XoiyVIfeh8uHyvEsDR3iFNe?usp=sharing" target="_blank">FuckLand</a></h2>
-    <h4>Creator: Vinson
-    <br><a href="https://youtu.be/WGj8Z1r4Kd0">Video Showcase</a>
-    <br>Length:Long</h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1KvrwfW6VttJB30VlNR1XsjaY6-IZV5M8/view?usp=drivesdk" target="_blank">Time</a></h2>
-    <h4>Creator: Permutative
-    <br><a href="https://youtu.be/JoiOItW-dtk" target="blank">Video Showcase</a>
-    <br>Length:Medium</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1OSkEqH2t5aDKKvja6a2efT5h-UhIKWJb?usp=sharing" target="_blank">The Road</a></h2>
-    <h4>Creator: Etomacuco
-    <br><a href="https://youtu.be/5Bny-bchrpk" target="_blank">Video Showcase</a>
-    <br>Length:Tiny</h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1HfsTPKBDwBLr3zAapWYNN7XlpDDvmP27/view?usp=sharing" target="_blank">Xmas</a></h2>
-    <h4>Creator: Permutative
-    <br><a href="https://youtu.be/AfbKeNrKLvE" target="_blank">Video Showcase</a>
-    <br>Length:Medium</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1ZP7VpgCFdn9KDgCPAva10w6QYGAcq3PF?usp=sharing" target="_blank">ok</a></h2>
-    <h4>Creator: clody
-    <br><a href= "https://youtu.be/8aNX2PocdqM">Video Showcase</a>
-    <br>Length:Medium</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1xg1HMU1kJQvkFcKdQhKvPwjv-SeXjfTo?usp=sharing" target="_blank">The Real Hard Mode Map</a></h2>
-    <h4>Creator: Billy8475
-    <br><a href="https://youtu.be/BRoJh7MUvFE">Video Showcase</a>
-    <br>Length:Medium</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1XDdF2bjjXAgxNmBq4ELTS_TPOXpsUgVC?usp=sharing" target="_blank">Coco</a></h2>
-    <h4>Creator:Rossi
-    <br><a href="https://youtu.be/_NJp08axY2o" target="_blank">Video Showcase</a>
-    <br>Length:Short</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1rMuK-QsCCy-Wcgtcas0-H4XGj6aXMCS8?usp=sharing" target="_blank">Weapon Hell</a></h2>
-    <h4>Creator: SansTR HY
-    <br><a href="https://youtu.be/KgxIIs9Fupg" target="_blank">Video Showcase</a>
-    <br>Length:Short</h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/19Lp333k0AAPqJxTrkuiZxaK92Kaux6SJ?usp=sharing">Pogtopia</a></h2>
-    <h4>Creator:RoosterGaming
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1_rurvR0JZU_dNElBlJPkcotHHGq_pQof?usp=sharing" target="_blank">Laserville DEMO</a></h2>
-    <h4>Creator:iliLaSeRili
-    <br>No Video Showcase
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1z0QmNMC13X3Qm6DPi9c0a-bfIkeEUDIL?usp=sharing" target=""_blank>Codyland</a></h2>
-    <h4>Creator:masterCircle
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1mS9FYjMfXus9Vl8wE27lGCHAzUxcFjvD?usp=sharing" target="_blank">Memeing Over It</a></h2>
-    <h4>Creator:masterCircle
-    <br>No Video Showcase
-    <br>Length:ok.<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1S6Dw1Iodpuz_5-x8g1N5QQuYp_KM1e8H?usp=sharing" target="_blank">RockTop</a></h2>
-    <h4>Creator:Dash
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1NaxiJFCOIlRuW4rq8agKKl7I_5VBm9bC" target="_blank">Extended Hell</a></h2>
-    <h4>Creator:Codyumm
-    <br><a href="https://youtu.be/53aR1uqDBp8">Video Showcase</a>
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1nrqbSzotCyi9919CsQLnNvTLb9tZigb9?usp=sharing" target="_blank">The Climb</a></h2>
-    <h4>Creator:Billy8475
-    <br>No Video Shoowcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1TrEfsaU420OUooLRTZKe4EotyYV1qtKG?usp=sharing" target="_blank">The Trees</a></h2>
-    <h4>Creator:Happyfied
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1XB6C0g1t0mAlNPgy9203ifZVjFoitpHm?usp=sharing" target="_blank">High Up</a></h2>
-    <h4>Creator:Dash
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1CxURp5Wluavd812FiW4tU1BcTy-dTolo/view?usp=sharing" target="_blank">Banana Map</a></h2>
-    <h4>Creator:mp
-    <br>No Video Showcase
-    <br>Length:Short<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1NpvLZ-vWhr9SbgLcF_lTp-xlehI57AU8?usp=sharing" target="_blank">High Up</a></h2>
-    <h4>Creator:DRS
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1n-mwKRzFTIoNWNduHK5URv59ZHKNEZgc/view?usp=sharing" target="_blank">Hontema</a></h2>
-    <h4>Creator:Hontema
-    <br>No Video Showcase
-    <br>Length:Short<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1Fyo1o7VvmZoVKdGvZ-pq62TCkr_3ntRt?usp=sharing" target="_blank">Cursed Getting Over It</a></h2>
-    <h4>Creator:MrBlizzard
-    <br><a href="https://youtu.be/agoqhJmcQ_Y" target="_blank">Video Showcase</a>
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1cdRVb1No9bBjkOOtrssYf4H1ER3Ea47Y?usp=sharing" target="_blank">Goi Mountain but rocky</a></h2>
-    <h4>Creator:you wot
-    <br>No Video Showcase
-    <br>Length:Short<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1QzASmWd7Wc1NMsRfmN_Npd4qiuN6deh2?usp=sharing" target="_blank">Randomness</a></h2>
-    <h4>Creator:Happyfied
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/file/d/1TOAEk9AL7AQ3UFf3C17SBFHMXkec0dg1/view?usp=sharing" target="_blank">Boxman Struggle Port</a></h2>
-    <h4>Creator:Permutative
-    <br><a href="https://youtu.be/TwgXnHpfqMY" target="_blank">Video Showcase</a>
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1TrEfsaU420OUooLRTZKe4EotyYV1qtKG?usp=sharing" target="_blank">The Trees</a></h2>
-    <h4>Creator:Happyfied
-    <br><a href="https://youtu.be/0z7jTo9cfgk" target="_blank">Video Showcase</a>
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1OGGeFyiN2G7Ukk7k3Jzn1Th0-FpmX-rY?usp=sharing" target="_blank">Boxy Boxes</a></h2>
-    <h4>Creator:Nathan Yoshi
-    <br><a href="https://youtu.be/xXCTXD_H8d8" target="_blank">Video Showcase</a>
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/174Pcegy68GrKls4V3dHSVqt5YQp9X_3u?usp=sharing" target="_blank">GGOOII</a></h2>
-    <h4>Creator:Happyfied
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1tiuhxJNG_FSKFH4GqmrXPF5ZiA8SDKTG?usp=sharing" target="_blank">Stick with It</a></h2>
-    <h4>Creator:DRS
-    <br>No Video Showcase
-    <br>Length:Long<h4></h4>
-    <h2><a href="https://drive.google.com/drive/folders/1xykxY3bDoTUpDXMyVeENDRLhQkA-hasT" target="_blank">I tried to make a map</a></h2>
-    <h4>Creator:HippityHop/Hoppiters
-    <br>No Video Showcase
-    <br>Length:Medium<h4></h4>
-    -->
-    <button class="open-button" onclick="openForm()">Upload Map</button>
+<script src=main.js></script>
+<body>
+  <center>
+  <h1>Getting Over It Custom Maps</h1>
+  <p>A place where you can find and play custom maps for getting over it!</p>
+  <h3>Useful Links</h3>
+  <p>
+  Modpack <a href="https://discord.gg/NGJyJJw" target="_blank">Download</a></p>
+  <p>Mapping Server <a href="https://discord.gg/prMdkvvSKV" target="_blank">Invite</a></p>
+  <p>How to Make Custom Maps <a href="https://www.youtube.com/watch?v=sgIxhBlbhAQ&t" target="_blank">Video</a></p>
+  <h4>Want to submit a map? Head over to our server and DM a moderator</h4>
+  <!-- This is a comment
+  <h1>Custom Maps<h1>
+  <h2><a href="https://drive.google.com/drive/folders/1s9lZfmoqCfwJeg1BOiTXx6U4LgaTs7Py" target="_blank">CliffHanger</a></h2>
+  <h4>Creator: Codyumm
+  <br><a href="https://www.youtube.com/watch?v=nxN7jMGzMn8&t" target="_blank">Video Showcase</a><br>Length:Medium</h4>
+  <h2><a href="https://drive.google.com/drive/folders/1guizRc45qswNcb_nEPUZdUzIRLYCw0fs?usp=sharing" target="_blank">CliffJumper</a></h2>
+  <h4>Creator: Bobingstern
+  <br><a href="https://www.youtube.com/watch?v=08mkbt3zKOA&t" target="_blank">Video Showcase</a><br>Length:Long</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1z8G3--LJOMxjlvIj34KIimEVvLymzi24?usp=sharing" target="_blank">Slippery Slopes</a></h2>
+  <h4>Creator: Bobingstern
+  <br><a href="https://www.youtube.com/watch?v=9HDZ_k680Bk" target="_blank">Video Showcase</a><br>Length:Short/Medium</h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1fwGnZx7yjGaBH91WQpX_tdX0471r6CFK/view?usp=sharing" target="_blank">Jump King</a></h2>
+  <h4>Creator: Quivers
+  <br>No Video Showcase
+  <br>Length:XL<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/16K5PCBBS7az2LrQ8ybyzmoYaJxtn0VRb" target="_blank">Getting Over Golfing Over It</a></h2>
+  <h4>Creator: Codyumm
+  <br><a href="https://www.youtube.com/watch?v=Uxq7bkJ6JGY&t" target="_blank">Video Showcase</a>
+  <br>Length:Medium/Long</h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1lT-6d1aQU3zZsjqbStDiud-Vhvz8X8Qa/view?usp=drivesdk" target="_blank">Yummz Demo</a></h2>
+  <h4>Creator: Permutative
+  <br>No Video Showcase
+  <br>Length:XL</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/12J5Y3oJSKp1_2NPYXDjIDJAoGGgWYeiR" target="_blank">Mario</a></h2>
+  <h4>Creator: HighChair
+  <br><a href="https://youtu.be/BV2dpPJqXjQ" target="_blank">Video Showcase</a>
+  <br>Length:Short-Medium</h4></h4></h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/15d2psipS8XoiyVIfeh8uHyvEsDR3iFNe?usp=sharing" target="_blank">FuckLand</a></h2>
+  <h4>Creator: Vinson
+  <br><a href="https://youtu.be/WGj8Z1r4Kd0">Video Showcase</a>
+  <br>Length:Long</h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1KvrwfW6VttJB30VlNR1XsjaY6-IZV5M8/view?usp=drivesdk" target="_blank">Time</a></h2>
+  <h4>Creator: Permutative
+  <br><a href="https://youtu.be/JoiOItW-dtk" target="blank">Video Showcase</a>
+  <br>Length:Medium</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1OSkEqH2t5aDKKvja6a2efT5h-UhIKWJb?usp=sharing" target="_blank">The Road</a></h2>
+  <h4>Creator: Etomacuco
+  <br><a href="https://youtu.be/5Bny-bchrpk" target="_blank">Video Showcase</a>
+  <br>Length:Tiny</h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1HfsTPKBDwBLr3zAapWYNN7XlpDDvmP27/view?usp=sharing" target="_blank">Xmas</a></h2>
+  <h4>Creator: Permutative
+  <br><a href="https://youtu.be/AfbKeNrKLvE" target="_blank">Video Showcase</a>
+  <br>Length:Medium</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1ZP7VpgCFdn9KDgCPAva10w6QYGAcq3PF?usp=sharing" target="_blank">ok</a></h2>
+  <h4>Creator: clody
+  <br><a href= "https://youtu.be/8aNX2PocdqM">Video Showcase</a>
+  <br>Length:Medium</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1xg1HMU1kJQvkFcKdQhKvPwjv-SeXjfTo?usp=sharing" target="_blank">The Real Hard Mode Map</a></h2>
+  <h4>Creator: Billy8475
+  <br><a href="https://youtu.be/BRoJh7MUvFE">Video Showcase</a>
+  <br>Length:Medium</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1XDdF2bjjXAgxNmBq4ELTS_TPOXpsUgVC?usp=sharing" target="_blank">Coco</a></h2>
+  <h4>Creator:Rossi
+  <br><a href="https://youtu.be/_NJp08axY2o" target="_blank">Video Showcase</a>
+  <br>Length:Short</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1rMuK-QsCCy-Wcgtcas0-H4XGj6aXMCS8?usp=sharing" target="_blank">Weapon Hell</a></h2>
+  <h4>Creator: SansTR HY
+  <br><a href="https://youtu.be/KgxIIs9Fupg" target="_blank">Video Showcase</a>
+  <br>Length:Short</h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/19Lp333k0AAPqJxTrkuiZxaK92Kaux6SJ?usp=sharing">Pogtopia</a></h2>
+  <h4>Creator:RoosterGaming
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1_rurvR0JZU_dNElBlJPkcotHHGq_pQof?usp=sharing" target="_blank">Laserville DEMO</a></h2>
+  <h4>Creator:iliLaSeRili
+  <br>No Video Showcase
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1z0QmNMC13X3Qm6DPi9c0a-bfIkeEUDIL?usp=sharing" target=""_blank>Codyland</a></h2>
+  <h4>Creator:masterCircle
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1mS9FYjMfXus9Vl8wE27lGCHAzUxcFjvD?usp=sharing" target="_blank">Memeing Over It</a></h2>
+  <h4>Creator:masterCircle
+  <br>No Video Showcase
+  <br>Length:ok.<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1S6Dw1Iodpuz_5-x8g1N5QQuYp_KM1e8H?usp=sharing" target="_blank">RockTop</a></h2>
+  <h4>Creator:Dash
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1NaxiJFCOIlRuW4rq8agKKl7I_5VBm9bC" target="_blank">Extended Hell</a></h2>
+  <h4>Creator:Codyumm
+  <br><a href="https://youtu.be/53aR1uqDBp8">Video Showcase</a>
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1nrqbSzotCyi9919CsQLnNvTLb9tZigb9?usp=sharing" target="_blank">The Climb</a></h2>
+  <h4>Creator:Billy8475
+  <br>No Video Shoowcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1TrEfsaU420OUooLRTZKe4EotyYV1qtKG?usp=sharing" target="_blank">The Trees</a></h2>
+  <h4>Creator:Happyfied
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1XB6C0g1t0mAlNPgy9203ifZVjFoitpHm?usp=sharing" target="_blank">High Up</a></h2>
+  <h4>Creator:Dash
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1CxURp5Wluavd812FiW4tU1BcTy-dTolo/view?usp=sharing" target="_blank">Banana Map</a></h2>
+  <h4>Creator:mp
+  <br>No Video Showcase
+  <br>Length:Short<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1NpvLZ-vWhr9SbgLcF_lTp-xlehI57AU8?usp=sharing" target="_blank">High Up</a></h2>
+  <h4>Creator:DRS
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1n-mwKRzFTIoNWNduHK5URv59ZHKNEZgc/view?usp=sharing" target="_blank">Hontema</a></h2>
+  <h4>Creator:Hontema
+  <br>No Video Showcase
+  <br>Length:Short<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1Fyo1o7VvmZoVKdGvZ-pq62TCkr_3ntRt?usp=sharing" target="_blank">Cursed Getting Over It</a></h2>
+  <h4>Creator:MrBlizzard
+  <br><a href="https://youtu.be/agoqhJmcQ_Y" target="_blank">Video Showcase</a>
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1cdRVb1No9bBjkOOtrssYf4H1ER3Ea47Y?usp=sharing" target="_blank">Goi Mountain but rocky</a></h2>
+  <h4>Creator:you wot
+  <br>No Video Showcase
+  <br>Length:Short<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1QzASmWd7Wc1NMsRfmN_Npd4qiuN6deh2?usp=sharing" target="_blank">Randomness</a></h2>
+  <h4>Creator:Happyfied
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/file/d/1TOAEk9AL7AQ3UFf3C17SBFHMXkec0dg1/view?usp=sharing" target="_blank">Boxman Struggle Port</a></h2>
+  <h4>Creator:Permutative
+  <br><a href="https://youtu.be/TwgXnHpfqMY" target="_blank">Video Showcase</a>
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1TrEfsaU420OUooLRTZKe4EotyYV1qtKG?usp=sharing" target="_blank">The Trees</a></h2>
+  <h4>Creator:Happyfied
+  <br><a href="https://youtu.be/0z7jTo9cfgk" target="_blank">Video Showcase</a>
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1OGGeFyiN2G7Ukk7k3Jzn1Th0-FpmX-rY?usp=sharing" target="_blank">Boxy Boxes</a></h2>
+  <h4>Creator:Nathan Yoshi
+  <br><a href="https://youtu.be/xXCTXD_H8d8" target="_blank">Video Showcase</a>
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/174Pcegy68GrKls4V3dHSVqt5YQp9X_3u?usp=sharing" target="_blank">GGOOII</a></h2>
+  <h4>Creator:Happyfied
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1tiuhxJNG_FSKFH4GqmrXPF5ZiA8SDKTG?usp=sharing" target="_blank">Stick with It</a></h2>
+  <h4>Creator:DRS
+  <br>No Video Showcase
+  <br>Length:Long<h4></h4>
+  <h2><a href="https://drive.google.com/drive/folders/1xykxY3bDoTUpDXMyVeENDRLhQkA-hasT" target="_blank">I tried to make a map</a></h2>
+  <h4>Creator:HippityHop/Hoppiters
+  <br>No Video Showcase
+  <br>Length:Medium<h4></h4>
+  -->
+  <button class="open-button" onclick="openForm()">Admin Upload</button>
 
   <div class="form-popup" id="myForm">
-    <form class="form-container">
-      <h1>Upload Map</h1>
+  <form class="form-container">
+    <h1>Admin Upload</h1>
 
-      <label for="email"><b>Admin Key</b></label>
-      <input type="password" placeholder="Enter Key" name="Key" required>
+    <label for="email"><b>Admin Key</b></label>
+    <input type="password" placeholder="Enter Key" name="Key" required>
 
-      <label for="psw"><b>Map Name</b></label>
-      <input type="text" placeholder="Enter Map Name" name="Map" required>
+    <label for="psw"><b>Map Name</b></label>
+    <input type="text" placeholder="Enter Map Name" name="Map" required>
 
-      <label for="psw"><b>Map Creator</b></label>
-      <input type="text" placeholder="Enter Map Creator" name="Cre" required>
+    <label for="psw"><b>Map Creator</b></label>
+    <input type="text" placeholder="Enter Map Creator" name="Cre" required>
 
-      <label for="psw"><b>Map Length</b></label>
-      <input type="text" placeholder="Enter Map Length" name="Len" required>
+    <label for="psw"><b>Map Length</b></label>
+    <input type="text" placeholder="Enter Map Length" name="Len" required>
 
-      <label for="psw"><b>Download Link</b></label>
-      <input type="text" placeholder="Enter Download Link" name="Down" required>
+    <label for="psw"><b>Download Link</b></label>
+    <input type="text" placeholder="Enter Download Link" name="Down" required>
 
-      <label for="psw"><b>Video Link (Enter None if none)</b></label>
-      <input type="text" placeholder="Enter Video" name="Vid" required>
+    <label for="psw"><b>Video Link (Enter None if none)</b></label>
+    <input type="text" placeholder="Enter Video" name="Vid" required>
 
-      <button type="button" class="btn" onclick="Submit()">Submit</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
+    <button type="button" class="btn" onclick="Submit()">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
   </div>
 
+
+
   <script>
+  function SubmitClient(){
+    console.log()
+  }
+
+
   function openForm() {
-    document.getElementById("myForm").style.display = "block";
+  document.getElementById("myForm").style.display = "block";
   }
 
   function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+  document.getElementById("myForm").style.display = "none";
+  }
+
+  function openForm2() {
+  document.getElementById("form").style.display = "block";
+  }
+
+  function closeForm2() {
+  document.getElementById("form").style.display = "none";
   }
   function Submit(){
 
-    if (document.getElementsByName("Key")[0].value != "asdfgk23j4hghafgk35489rgfbv"){
-      window.alert("Incorrect Key");
-    }
-    else{
-      var data = getAllFromCol("maps/")
-      data.then(function(data){
-        var max_ = getMaxIndexId(data)
-        console.log(max_)
-        var name = document.getElementsByName("Map")[0].value
-        var creator = document.getElementsByName("Cre")[0].value
-        var Len = document.getElementsByName("Len")[0].value
-        var downlink = document.getElementsByName("Down")[0].value
-        var Vid = document.getElementsByName("Vid")[0].value
+  if (document.getElementsByName("Key")[0].value != "asdfgk23j4hghafgk35489rgfbv"){
+    window.alert("Incorrect Key");
+  }
+  else{
+    var data = getAllFromCol("maps/")
+    data.then(function(data){
+      var max_ = getMaxIndexId(data)
+      console.log(max_)
+      var name = document.getElementsByName("Map")[0].value
+      var creator = document.getElementsByName("Cre")[0].value
+      var Len = document.getElementsByName("Len")[0].value
+      var downlink = document.getElementsByName("Down")[0].value
+      var Vid = document.getElementsByName("Vid")[0].value
 
-        AddData("maps/", name, creator, Len, downlink, max_, Vid)
-        window.alert("Sucessfully Uploaded! Refresh the page to see changes");
+      AddData("maps/", name, creator, Len, downlink, max_+1, Vid)
+      window.alert("Sucessfully Uploaded! Refresh the page to see changes");
 
-      })
-    }
+    })
+  }
   }
   </script>
 
   </form>
-</div>
+  </div>
 
-
-  </body>
+</center>
+</body>
 </html>
